@@ -33,21 +33,15 @@ def calcular():
     resultado = eval(valores)
     print(resultado)
     
+def apagar():
+    global valores
+    valores = ''
+    input.set('')
+    
+    
+    
 #Botões
 
-<<<<<<< HEAD
-b1 = Button(window_frame2, text="%", width=10, height=4, bg="grey")
-b1.place(x=0, y=0)
-
-b2 = Button(window_frame2, text="CE", width=10, height=4, bg="grey")
-b2.place(x=85, y=0)
-
-b2 = Button(window_frame2, text="C", width=10, height=4, bg="grey")
-b2.place(x=170, y=0)
-
-b2 = Button(window_frame2, text="⌫", width=10, height=4, bg="grey")
-b2.place(x=255, y=0)
-=======
 b0 = Button(window_frame2, text="0", width=8, height=3, bg="black",  font=("Helvetica"),command=lambda: input_valor('0'), foreground="white", relief=RAISED, overrelief=RIDGE)
 b0.place(x=85, y=280)
 
@@ -93,7 +87,7 @@ bigual.place(x=255, y=280)
 bporcentagem = Button(window_frame2, text="%", width=8, height=3,font=("Helvetica"),command=lambda: input_valor('%'), foreground="white", relief=RAISED, overrelief=RIDGE, bg="grey")
 bporcentagem.place(x=255, y=0)
 
-bapagar = Button(window_frame2, text="C", width=27, height=3, bg="black", font=("Helvetica"),command=lambda: input_valor(), foreground="white", relief=RAISED, overrelief=RIDGE)
+bapagar = Button(window_frame2, text="C", width=27, height=3, bg="black", font=("Helvetica"),command=apagar, foreground="white", relief=RAISED, overrelief=RIDGE)
 bapagar.place(x=0, y=0)
 
 bvirgula = Button(window_frame2, text=",", width=8, height=3, bg="grey", font=("Helvetica"),command=lambda: input_valor('%'), foreground="white", relief=RAISED, overrelief=RIDGE, )
@@ -101,6 +95,6 @@ bvirgula.place(x=170, y=280)
 
 braiz = Button(window_frame2, text="√", width=8, height=3,font=("Helvetica"),command=lambda: input_valor('√'), foreground="white", relief=RAISED, overrelief=RIDGE, bg="grey")
 braiz.place(x=0, y=280)
->>>>>>> 1bfa97711298cf26eef5fa64de56d14bbca31df7
+
 
 window.mainloop()
