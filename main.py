@@ -1,17 +1,18 @@
 from tkinter import *
 from tkinter import ttk
+import math
 
 
 #Janelas
 
 window = Tk()
 window.title("Calculadora")
-window.geometry("330x500")
+window.geometry("330x420")
 
 window_frame = Frame(window, width=330, height=70,)
 window_frame.grid(row=0, column=0)
 
-window_frame2 = Frame(window, width=330, height=430, bg="white")
+window_frame2 = Frame(window, width=330, height=420, bg="white")
 window_frame2.grid(row=1, column=0)
 
 #label
@@ -30,9 +31,18 @@ def input_valor(valor):
     input.set(valores)
     
 def calcular():
+    global valores
     resultado = eval(valores)
-    print(resultado)
+    input.set(resultado)
+          
+def calcular_raiz():
+    global valores
+    valores = int(valores)
+    resultado = math.sqrt(valores)
+    valores = str(resultado)   
+    input.set(resultado)
     
+           
 def apagar():
     global valores
     valores = ''
@@ -93,7 +103,7 @@ bapagar.place(x=0, y=0)
 bvirgula = Button(window_frame2, text=",", width=8, height=3, bg="grey", font=("Helvetica"),command=lambda: input_valor('%'), foreground="white", relief=RAISED, overrelief=RIDGE, )
 bvirgula.place(x=170, y=280)
 
-braiz = Button(window_frame2, text="√", width=8, height=3,font=("Helvetica"),command=lambda: input_valor('√'), foreground="white", relief=RAISED, overrelief=RIDGE, bg="grey")
+braiz = Button(window_frame2, text="√", width=8, height=3,font=("Helvetica"),command=calcular_raiz, foreground="white", relief=RAISED, overrelief=RIDGE, bg="grey")
 braiz.place(x=0, y=280)
 
 
