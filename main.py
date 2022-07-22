@@ -24,22 +24,33 @@ label.place(x=0, y=0)
 #Funções
 
 valores = ''
+resultado = ''
+
 
 def input_valor(valor):
     global valores
     valores += valor
-    input.set(valores)
+    if input != "":
+        input.set(valores)
+    else:
+        input.set(resultado)
+    
     
 def calcular():
     global valores
     resultado = eval(valores)
+    valores = resultado
     input.set(resultado)
+    
+    
           
-def calcular_raiz():
+def calcular_raiz(valor):
     global valores
-    valores = int(valores)
-    resultado = math.sqrt(valores)
-    valores = str(resultado)   
+    global resultado
+    valor = int(valor)
+    valor = math.sqrt(valor)
+    resultado = str(valor)
+    valores = resultado
     input.set(resultado)
     
            
@@ -103,7 +114,7 @@ bapagar.place(x=0, y=0)
 bvirgula = Button(window_frame2, text=",", width=8, height=3, bg="grey", font=("Helvetica"),command=lambda: input_valor('%'), foreground="white", relief=RAISED, overrelief=RIDGE, )
 bvirgula.place(x=170, y=280)
 
-braiz = Button(window_frame2, text="√", width=8, height=3,font=("Helvetica"),command=calcular_raiz, foreground="white", relief=RAISED, overrelief=RIDGE, bg="grey")
+braiz = Button(window_frame2, text="√", width=8, height=3,font=("Helvetica"),command=lambda: calcular_raiz(valores), foreground="white", relief=RAISED, overrelief=RIDGE, bg="grey")
 braiz.place(x=0, y=280)
 
 
